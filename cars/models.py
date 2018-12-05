@@ -7,6 +7,3 @@ class Car(models.Model):
     creation_date = models.DateField()
     disposal_date = models.DateField()
     passport = models.ImageField(upload_to='passports')
-
-    def __str__(self):
-        return self.vin
