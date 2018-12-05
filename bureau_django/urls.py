@@ -15,13 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
-from cars.views import views as cars_views
+from cars import views as cars_views
 
 urlpatterns = [
-    path('', cars_views.profile, name='home'),
+    path('', cars_views.home, name='home'),
+    path('list/', cars_views.list, name='list'),
+    path('period/', cars_views.period, name='period'),
     path('admin/', admin.site.urls),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)3
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
