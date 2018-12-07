@@ -47,6 +47,8 @@ def period(request):
                     return HttpResponse('no cars in this period')
             else:
                 return HttpResponse('period is not valid')
+        else:
+            return HttpResponse('form is not valid')
     else:
         form = PeriodForm()
         context = {'form': form}
